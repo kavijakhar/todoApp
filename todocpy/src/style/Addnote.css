@@ -1,0 +1,150 @@
+.about{
+    min-height: 100vh;
+    width: 100vw;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .about .row{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding:0 4rem;
+  }
+  
+  .about .row .content{
+    text-align: left;
+  }
+  
+  .about .row .image img{
+    width: 50vw;
+  }
+  
+  .about .row .content h3{
+    font-size: 3rem;
+    color: var(--color);
+  }
+  
+  .about .row .content p{
+    font-size: 1.5rem;
+    color: #333;
+    padding:1rem 0;
+  }
+  
+  .about::before, .about::after{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    opacity:.2;
+    border-radius: 50%;
+  }
+  
+  .about::before{
+    height:50rem;
+    width:50rem;
+    background:#ccc;
+    bottom:-10rem; left:-10rem;
+  }
+  
+  
+  @media (max-width:768px){
+    .about .row{
+        flex-flow: column-reverse;
+        padding:0 2rem;
+      }
+    
+      .about .row .image img{
+        width: 100vw;
+      }
+  }
+
+
+  .heading{
+    margin:2rem;
+    padding-top: 6rem;
+    display: inline-block;
+    font-size: 3.5rem;
+    color:var(--color);
+    position: relative;
+    letter-spacing: .2rem;
+  }
+  
+  .heading::before, .heading::after{
+    content: '';
+    position: absolute;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-top:.4rem solid var(--color);
+    border-left:.4rem solid var(--color);
+  }
+  
+  .heading::before{
+    top:5.8rem; left: -2rem;
+  }
+  
+  .heading::after{
+    bottom:-.5rem; right: -2rem;
+    transform: rotate(180deg);
+  }
+  
+  .btn{
+    margin: 1rem 0rem 0rem 5.5rem;
+    padding:.9rem 3rem;
+    font-size: 1.7rem;
+    color:#fff;
+    background: var(--color);
+    cursor: pointer;
+    border: none;
+    width: 16rem;
+
+  }
+  
+  .btn:hover{
+    letter-spacing: .2rem;
+    opacity: .8;
+  }
+  .NoteForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .NoteForm div{
+    margin: 2rem 0rem;
+    display: flex;
+    flex-direction: row;
+
+
+  }
+  .NoteForm div label{
+    letter-spacing: .2rem;
+  font-size: 1.6rem;
+  padding-right: 1rem;
+  padding-top: .4rem;
+  font-weight: 900;
+  color: #333;
+    
+  }
+  .NoteForm div input{
+ border: none;
+ font-size: 1.4rem;
+ box-shadow: 2px 3px 13px white;
+ padding: 1rem;
+ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  color: #333;
+  width: 40rem;
+  outline:none;
+    
+  }
+  .NoteForm div textarea{
+    outline:none;
+    font-size: 1.4rem;
+    height: 11rem;
+    width: 40rem;
+ border: none;
+ box-shadow: 2px 3px 13px white;
+ padding: 1rem;
+ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  color: #333;
+    
+  }
