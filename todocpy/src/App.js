@@ -8,25 +8,41 @@ import Signup from "./components/Signup";
 import Navbar from "./components/Navbar";
 import TodoList from "./components/TodoList";
 import './index.css'
+import Alert from "./components/Alert";
+import { useState } from "react";
+import TodoState from "./context/todo/TodoState";
 
 
 function App() {
+  const [alert, setAlert] = useState(null)
+  const showAlert = (message, type) => {
+    setAlert({
+      msg: message,
+      type: type
+    })
+    setTimeout(() => {
+      setAlert(null)
+    }, 1500);
+  }
 
   return (
     <div>
-      <Router>
+      <TodoState>
 
-        <Navbar />
-        <Home />
+        <Router>
 
-        <Routes>
-
-          <Route path="/" element={<TodoList />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-        </Routes>
-        <Footer />
-      </Router>
+          <Navbar />
+          <Alert alert={alert} />
+          <Home />
+          <Routes>
+            <Route path="/" element={<TodoList showAlert={showAlert} />} />
+            <Route path="/login" element={<Login showAlert={showAlert} />} />
+            <Route path="/signup" element={<Signup showAlert={showAlert} />} />
+            
+          </Routes>
+          <Footer />
+        </Router>
+      </TodoState>
 
 
 

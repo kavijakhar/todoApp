@@ -1,25 +1,36 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import '../style/Addnote.css'
+import todoContext from '../context/todo/TodoContext'
 
-const Addtodo = () => {
+const Addtodo = (props) => {
+    const context = useContext(todoContext);
+    // console.log(context)
+    const { addTodo } = context;
+    const [todo, setTodo] = useState({ title: "", description: "" })
 
-    const SubmitNote = (e) => {
-        e.preventDefault()
-        console.log('first');
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        addTodo(todo.title, todo.description);
+        setTodo({ title: "", description: "", })
+        // props.showAlert("YOur note has added successfully", 'success')
+    }
+    const onChange = (e) => {
+        setTodo({ ...todo, [e.target.name]: e.target.value })
     }
 
     return (
         <>
-            <form action="post" onSubmit={SubmitNote} className="NoteForm">
+            <form action="post" className="NoteForm">
                 <div>
                     <label htmlFor="title">Title</label>
-                    <input type="text" name="title" id="title" required minLength={5} />
+                    <input type="text" value={todo.title} name="title" id="title" required minLength={5} onChange={onChange} />
                 </div>
                 <div>
-                    <label htmlFor="note">Note</label>
-                    <textarea type="text" name="note" id="note" required minLength={5} />
+                    <label htmlFor="description">Description</label>
+                    <textarea type="text" name="description" value={todo.description} id="description" required minLength={5} onChange={onChange} />
                 </div>
-                <button type='submit' className="btn">Add Note</button>
+                <button disabled={todo.title.length < 5 || todo.description.length < 5} type='submit' className="btn" onClick={handleClick}>Add Note</button>
             </form>
         </>
     )

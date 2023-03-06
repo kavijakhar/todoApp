@@ -60,7 +60,7 @@ const Navbar = () => {
         {
             id: "2",
             name: "MY Todo",
-            link: "/todoLists",
+            link: "/",
 
         },
         {
@@ -91,7 +91,7 @@ const Navbar = () => {
                     <Link href="/"  >
                         <img src={logo} width={350} height={50} className="navlogo" alt="icon"></img>
                     </Link>
-             
+
                 </div>
                 <div className="navrow">
                     <nav>

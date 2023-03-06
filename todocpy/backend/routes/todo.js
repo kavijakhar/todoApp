@@ -9,8 +9,15 @@ router.get('/fatchalltodo', fatchuser, async (req, res) => {
     try {
 
         const todo = await Todo.find({ user: req.user.id });
-        res.json(todo);
-        console.log(todo)
+        // const newArrayOfObj = todo.map(({
+        //     _id: id,
+        //     ...rest
+        // }) => ({
+        //     id,
+        //     ...rest
+        // }));
+        // console.log(newArrayOfObj);
+        res.status(200).json({ todo, success: true })
     } catch (error) {
         console.error(error.message);
         res.status(500).send("Some Error occurred");
@@ -33,6 +40,7 @@ router.post('/addtodo', fatchuser, [
             const todo = new Todo({
                 title, description, user: req.user.id
             });
+            
             const saveTodo = await todo.save();
             res.json(saveTodo);
         } catch (error) {

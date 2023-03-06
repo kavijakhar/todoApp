@@ -34,7 +34,7 @@ const Login = (props) => {
   return (
     <div className="mt-3 my-3 main">
       <form onSubmit={handleSubmit} id="form">
-      <h1>Login for get All Your Notes</h1>
+        <h1>Login for get All Your Notes</h1>
         <div className="form-group my-3">
           <label htmlFor="email">Email address</label>
           <input type="email" className="form-control my-2" id="email" name="email" value={cordentials.email} onChange={onChange} aria-describedby="emailHelp" placeholder="Enter email" />

@@ -19,5 +19,5 @@ date:{
     type: Date,
     default: Date.now,
 },
-});
+},{timestamps:true})
 module.exports = mongoose.model('user', UserSchema);
